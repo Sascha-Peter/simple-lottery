@@ -1,7 +1,7 @@
 """This file contains all user related forms
 
 @author: Sascha Peter <sascha.o.peter@gmail.com>
-@version: 0.2.0
+@version: 0.2.1
 @since: 2015-10-04
 """
 from django.forms import ModelForm
