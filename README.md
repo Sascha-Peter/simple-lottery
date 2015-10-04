@@ -36,3 +36,6 @@ All additional packages can simply be installed by running:
 * Documentation: CRS
 * Documentation: User Documentation
 * Documentation: Feature sheet
+
+# Copyright
+This project, unless otherwise stated, is Copyright by Sascha Peter (c) 2015 sascha.o.peter@gmail.com
