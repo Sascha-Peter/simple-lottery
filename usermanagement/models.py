@@ -19,5 +19,3 @@ class UserProfile(models.Model):
     postcode = models.CharField(max_length=7,
                                 help_text='Supported formats: W2 3PR, ' +
                                 'HG1 5EY , LS168AG')
-    county = models.CharField(max_length=140, blank=True)
-    nation = models.CharField(max_length=140, blank=True)

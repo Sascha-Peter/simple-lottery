@@ -26,6 +26,7 @@ urlpatterns = [
         {'next_page': '/'},
         name="logout"),
     url('^', include('django.contrib.auth.urls')),
+    url('^sign-up/', 'usermanagement.views.sign_up', name="sign-up"),
     url(r'^admin/', include(admin.site.urls)),
 ]
 

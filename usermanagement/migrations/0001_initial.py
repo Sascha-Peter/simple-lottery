@@ -21,8 +21,6 @@ class Migration(migrations.Migration):
                 ('street', models.CharField(max_length=240)),
                 ('city', models.CharField(max_length=240)),
                 ('postcode', models.CharField(help_text='Supported formats: W2 3PR, HG1 5EY , LS168AG', max_length=7)),
-                ('county', models.CharField(blank=True, max_length=140)),
-                ('nation', models.CharField(blank=True, max_length=140)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
         ),
