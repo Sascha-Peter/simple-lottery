@@ -25,12 +25,12 @@ All additional packages can simply be installed by running:
 ## Features
 
 ### Done
+* Base project setup
+* User profile implementation
 
 ### Work in progress
-* Base project setup
 
 ### Outstanding
-* User profile implementation
 * Lottery implementation
 * Unit test
 * Documentation: CRS
