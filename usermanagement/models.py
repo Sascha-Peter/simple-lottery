@@ -19,3 +19,6 @@ class UserProfile(models.Model):
     postcode = models.CharField(max_length=7,
                                 help_text='Supported formats: W2 3PR, ' +
                                 'HG1 5EY , LS168AG')
+
+    def __str__(self):
+        return self.user.username
