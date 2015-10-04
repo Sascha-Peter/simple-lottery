@@ -50,6 +50,14 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+# Keeping database settings in for CI, to be overwritten in settings_local
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
 ROOT_URLCONF = 'simple_lottery.urls'
 
 WSGI_APPLICATION = 'simple_lottery.wsgi.application'
