@@ -27,6 +27,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
 
+    'usermanagement',
+
     'localflavor',
 
     'django.contrib.admin',
@@ -65,6 +67,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'django.contrib.auth.views.login'
+LOGOUT_URL = 'django.contrib.auth.views.logout'
 
 try:
     from .settings_local import *

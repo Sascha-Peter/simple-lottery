@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from simple_lottery import settings
 from django.views.static import serve
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="base.html"), name="home"),
-
+    url(r'^logout/$', 'django.contrib.auth.views.logout',
+        {'next_page': '/'},
+        name="logout"),
+    url('^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
 
