@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
-from simple_gallery import settings
+from simple_lottery import settings
 from django.views.static import serve
 
 urlpatterns = [
