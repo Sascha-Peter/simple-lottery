@@ -16,9 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
-from simple_lottery import settings
+from django.conf import settings
 from django.views.static import serve
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="base.html"), name="home"),
