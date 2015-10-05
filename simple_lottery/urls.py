@@ -21,6 +21,7 @@ from django.views.static import serve
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="base.html"), name="home"),
+    url(r'^lottery/', include('lottery.urls')),
     url(r'^logout/$', 'django.contrib.auth.views.logout',
         {'next_page': '/'},
         name="logout"),

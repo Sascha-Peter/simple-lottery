@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for lottery in object_list %}
+        <div>
+            {{ lottery.title }}
+        </div>
+    {% empty %}
+        <p>No lotteries open at this time, please check again later!</p>
+    {% endfor %}
+
+{% endblock %}
