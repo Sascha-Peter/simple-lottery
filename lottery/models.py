@@ -32,7 +32,8 @@ class Lottery(models.Model):
                 entries.append(Entry(lottery=self))
             Entry.objects.bulk_create(entries)
             self.open_entries = self.max_entries
-            winning_entry = Entry.objects.filter(lottery=self).order_by('?').first()
+            winning_entry = Entry.objects.filter(lottery=self
+                                                 ).order_by('?').first()
             winning_entry.winner = True
             winning_entry.save()
         super(Lottery, self).save(*args, **kwargs)

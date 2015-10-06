@@ -4,7 +4,7 @@
 
     {% for lottery in object_list %}
         <div>
-            {{ lottery.title }}
+            <a href="{% url 'lottery-detail' lottery.slug %}">{{ lottery.title }}</a>
         </div>
     {% empty %}
         <p>No lotteries open at this time, please check again later!</p>

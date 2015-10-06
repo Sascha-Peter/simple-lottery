@@ -4,13 +4,13 @@
 @version: 0.3.0
 @since: 2015-10-05
 """
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
 from django.db.models import Q
-import datetime
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
-from .models import Lottery
+from .models import Lottery, Entry
 
 
 class LotteryListView(ListView):
@@ -25,3 +25,30 @@ class LotteryListView(ListView):
 
 class LotteryDetailView(DetailView):
     model = Lottery
+
+    def get_context_data(self, **kwargs):
+        context = super(LotteryDetailView, self).get_context_data(**kwargs)
+        if self.object.entry_set.filter(user=self.request.user.id):
+            context['lottery_entered'] = True
+        else:
+            context['lottery_entered'] = False
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        entry = Entry.objects.filter(lottery=self.object.id, user=None
+                                     ).order_by('?').first()
+        entry.user = request.user
+        entry.save()
+        return HttpResponseRedirect(reverse('lottery-detail',
+                                            args=[self.object.slug]))
+
+
+def enter_lottery(request):
+    if request.method == "POST":
+        lottery_id = request.POST.get('lid')
+        entry = Entry.objects.get(lottery=lottery_id)
+        entry.user = request.user
+        entry.save()
+    else:
+        pass
