@@ -5,6 +5,7 @@
 @since: 2015-10-05
 """
 from django.contrib import admin
+from django.template.response import TemplateResponse
 
 from .models import Lottery, Entry
 
@@ -32,6 +33,21 @@ class LotteryAdmin(admin.ModelAdmin):
 
 class EntryAdmin(admin.ModelAdmin):
     model = Entry
+
+
+def show_lottery_winner(request):
+    lotteries = Lottery.objects.all()
+    context = {}
+    context['winners'] = {}
+
+    for lottery in lotteries:
+        winner = lottery.entry_set.get(winner=True)
+        if winner.user:
+            context['winners'][lottery.slug] = winner.user
+        else:
+            context['winners'][lottery.slug] = "No winner yet!"
+
+    return TemplateResponse(request, "winner_list.html", context)
 
 admin.site.register(Lottery, LotteryAdmin)
 admin.site.register(Entry, EntryAdmin)

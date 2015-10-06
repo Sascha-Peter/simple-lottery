@@ -27,6 +27,8 @@ urlpatterns = [
         name="logout"),
     url('^', include('django.contrib.auth.urls')),
     url('^sign-up/', 'usermanagement.views.sign_up', name="sign-up"),
+    url(r'^admin/lottery_winner/', 'lottery.admin.show_lottery_winner',
+        name="winner-list"),
     url(r'^admin/', include(admin.site.urls)),
 ]
 
