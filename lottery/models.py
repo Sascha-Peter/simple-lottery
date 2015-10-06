@@ -48,6 +48,9 @@ class Lottery(models.Model):
         from django.core.urlresolvers import reverse
         return reverse('lottery-detail', kwargs={"slug": self.slug, })
 
+    class Meta:
+        verbose_name_plural = "lotteries"
+
 
 class Entry(models.Model):
     """Intermediary model for lottery entries with winner, where False equals
@@ -57,3 +60,6 @@ class Entry(models.Model):
     user = models.ForeignKey(User, blank=True, null=True,
                              on_delete=models.SET_NULL)
     winner = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name_plural = "entries"

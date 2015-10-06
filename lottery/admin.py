@@ -28,6 +28,7 @@ class LotteryAdmin(admin.ModelAdmin):
     inlines = [EntryInline, ]
     exclude = ('entries', )
     readonly_fields = ('open_entries', )
+    list_display = ('title', 'start_date', 'end_date', 'slug', 'winner')
     prepopulated_fields = {"slug": ("title", "start_date", )}
 
 

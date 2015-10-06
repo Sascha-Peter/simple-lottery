@@ -8,10 +8,6 @@
 <p>Time: {{ object.start_time }} - {{ object.end_time }}</p>
 <p>Open entries: {{ object.open_entries }}</p>
 
-{% for entry in object.entry_set.all %}
-{{ entry.lottery }} - {{ entry.user }} - {{ entry.winner }}
-{% endfor %}
-
 {% if lottery_entered %}
 <p>You already joined this lottery</p>
 {% else %}

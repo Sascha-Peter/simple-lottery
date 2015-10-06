@@ -50,5 +50,9 @@ def enter_lottery(request):
         entry = Entry.objects.get(lottery=lottery_id)
         entry.user = request.user
         entry.save()
+
+        if entry.winner:
+            entry.lottery.winner = request.user
+            entry.save()
     else:
         pass
