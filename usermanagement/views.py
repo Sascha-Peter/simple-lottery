@@ -1,7 +1,7 @@
 """This file contains all user related views
 
 @author: Sascha Peter <sascha.o.peter@gmail.com>
-@version: 0.3.0
+@version: 0.4.0
 @since: 2015-10-04
 """
 from django.shortcuts import render

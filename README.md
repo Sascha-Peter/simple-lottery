@@ -27,15 +27,20 @@ All additional packages can simply be installed by running:
 ### Done
 * Base project setup
 * User profile implementation
+* Lottery implementation
+* Unit test
+* Documentation: User Documentation
 
 ### Work in progress
 
 ### Outstanding
-* Lottery implementation
-* Unit test
-* Documentation: CRS
-* Documentation: User Documentation
-* Documentation: Feature sheet
+
+## Documentation
+Inline documentation is provided throughout the web application where applicable and necessary.
+A user documentation with requirements, feature overview and installation guide can be found in the 
+Simple_Lottery_Handbook folder in form of a pdf file.
 
 # Copyright
 This project, unless otherwise stated, is Copyright by Sascha Peter (c) 2015 sascha.o.peter@gmail.com
+
+The user documentation of this project has been written and generated with Publican - https://fedorahosted.org/publican/ - and may only be distributed subject to the terms and conditions set forth in the GNU Free Documentation License (GFDL), V1.2 or later (the latest version is presently available at http://www.gnu.org/licenses/fdl.txt).
