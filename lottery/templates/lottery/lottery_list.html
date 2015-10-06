@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}| Lottery List{% endblock %}
+
+{% block content %}
+
+    {% for lottery in object_list %}
+        <div>
+            <a href="{% url 'lottery-detail' lottery.slug %}">{{ lottery.title }}</a>
+        </div>
+    {% empty %}
+        <p>No lotteries open at this time, please check again later!</p>
+    {% endfor %}
+
+{% endblock %}

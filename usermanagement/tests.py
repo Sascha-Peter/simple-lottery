@@ -13,9 +13,11 @@ class UserTest(TestCase):
         self.user_anonymous = AnonymousUser()
 
     def test_homepage(self):
+        """Test if the homepage is available and working"""
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
     def test_login(self):
+        """Test if the login process is working for a defined user"""
         test_user = self.client.login(username='dummy', password='dummypw')
         self.assertEqual(test_user, True)

@@ -1,0 +1,9 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<ul>
+{% for key, item in winners.items %}
+<li>Lottery: {{ key }} - Winner: {{ item }} {{ item.email }} {{ item.userprofile.adress_one }} {{ item.userprofile.address_two }} {{ item.userprofile.street }} {{ item.userprofile.city }} {{ item.userprofile.postcode }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
