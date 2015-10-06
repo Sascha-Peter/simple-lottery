@@ -1,21 +1,24 @@
 {% extends "base.html" %}
 
+{% block pagetitle %}| {{ object.title }}{% endblock %}
+
 {% block content %}
+    <div itemscope itemtype="http://schema.org/Event">
+        <h1>{{ object.title }}</h1>
+        <p>Date: <time itemprop="startDate" datetime="{{ object.start_date|date:'c' }}">{{ object.start_date }}</time> - <time itemprop="endDate" datetime="{{ object.start_date|date:'c' }}">{{ object.end_date }}</time></p>
+        <p>Time: <time>{{ object.start_time }}</time> - <time>{{ object.end_time }}</time></p>
+        <p>Open entries: {{ object.open_entries }}</p>
 
-<div>
-<h1>{{ object.title }}</h1>
-<p>Date: {{ object.start_date }} - {{ object.end_date }}</p>
-<p>Time: {{ object.start_time }} - {{ object.end_time }}</p>
-<p>Open entries: {{ object.open_entries }}</p>
-
-{% if lottery_entered %}
-<p>You already joined this lottery</p>
-{% else %}
-<form method="post" action=".">
-{% csrf_token %}
-<input type="hidden" name="lid" value="{{ object.id }}">
-<input type="Submit" value="Enter lottery" />
-</form>
-{% endif %}
-</div>
+        {% if lottery_entered %}
+        <p>You already joined this lottery</p>
+        {% else %}
+            {% if user.is_authenticated  and object.open_entries > 0 %}
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    <input type="hidden" name="lid" value="{{ object.id }}">
+                    <input type="Submit" value="Enter lottery" />
+                </form>
+            {% endif %}
+        {% endif %}
+    </div>
 {% endblock %}

@@ -28,10 +28,11 @@ class LotteryDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(LotteryDetailView, self).get_context_data(**kwargs)
-        if self.object.entry_set.filter(user=self.request.user.id):
-            context['lottery_entered'] = True
-        else:
-            context['lottery_entered'] = False
+        if self.request.user.is_authenticated():
+            if self.object.entry_set.filter(user=self.request.user.id):
+                context['lottery_entered'] = True
+            else:
+                context['lottery_entered'] = False
         return context
 
     def post(self, request, *args, **kwargs):
@@ -39,7 +40,14 @@ class LotteryDetailView(DetailView):
         entry = Entry.objects.filter(lottery=self.object.id, user=None
                                      ).order_by('?').first()
         entry.user = request.user
+        entry.lottery.open_entries -= 1
+        entry.lottery.save()
         entry.save()
+        if entry.winner:
+            entry.lottery.winner = request.user
+            entry.lottery.save()
+            entry.save()
+
         return HttpResponseRedirect(reverse('lottery-detail',
                                             args=[self.object.slug]))
 
@@ -49,6 +57,7 @@ def enter_lottery(request):
         lottery_id = request.POST.get('lid')
         entry = Entry.objects.get(lottery=lottery_id)
         entry.user = request.user
+        entry.lottery.open_entries -= 1
         entry.save()
 
         if entry.winner:
