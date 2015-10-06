@@ -50,18 +50,3 @@ class LotteryDetailView(DetailView):
 
         return HttpResponseRedirect(reverse('lottery-detail',
                                             args=[self.object.slug]))
-
-
-def enter_lottery(request):
-    if request.method == "POST":
-        lottery_id = request.POST.get('lid')
-        entry = Entry.objects.get(lottery=lottery_id)
-        entry.user = request.user
-        entry.lottery.open_entries -= 1
-        entry.save()
-
-        if entry.winner:
-            entry.lottery.winner = request.user
-            entry.save()
-    else:
-        pass
