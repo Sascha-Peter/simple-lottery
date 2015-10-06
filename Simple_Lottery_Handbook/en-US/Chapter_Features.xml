@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Simple_Lottery_Handbook.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documentation-Simple_Lottery_Handbook-Features">
+	<title>Features</title>
+	<para>
+		Simple Lottery is a web application written in Python, using the Django web framework.
+	</para>
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Features-Lotteries">
+		<title>Lotteries</title>
+		<para>
+			Simple Lottery provides an easy to use lottery management system which is accessible through the admin panel under /admin/.
+		</para>
+		<para>
+			Every Lottery can have a Title, StartDate, EndDate, StartTime, EndTime and a maximum amount of entries. 
+			By providing the maximum amount of entries, the system will automatically create all entries and define one
+			entry as a winning entry ticket.
+		</para>
+		<para>
+			Users joining a lottery will randomly be assigned to one entry, which either will fail or win.
+		</para>
+		<para>
+			A list of all lotteries and winners can be found under /admin/lottery_winner/ - a corresponding link is available in the right-top corner of the admin interface near your username and other navigational links.
+		</para>
+	</section>
+
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Features-User_Management">
+		<title>User Management</title>
+		<para>
+			Users have to be registered in order to join a lottery. There are a hand full required fields, including their address, in order to sign up as a new user on the web application.
+		</para>
+		<para>
+			Users can select which lottery they would like to enter and will be informed about which ones they already entered.
+		</para>
+		<para>
+			The admin user can manage all users and their profile information through the admin interface in the user management module.
+		</para>
+	</section>
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Features-Responsive_Webdesign">
+		<title>Responsive Webdesign</title>
+		<para>
+			Whilst simplistic, the user interface has been written in Twitter's Bootstraps.
+			Twitter Bootstrap is a framework which enables responsive websites.
+			The website uses a few basic elements including the grid layout in order to enable a responsive website which works across all screen sizes.
+		</para>
+	</section>
+</chapter>
+

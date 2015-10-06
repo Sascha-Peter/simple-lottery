@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Simple_Lottery_Handbook.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documentation-Simple_Lottery_Handbook-Configuration">
+	 <title>Configuration</title>
+    <para>
+        The following sections will guide you through the configuration and setup of the website project itself
+        and how to locally launch it in your pre-prepared environment of the previous chapter.
+    </para>
+    <section id="sect-Documentation-Simple_Lottery_Handbook-Configuration-Configure_the_project">
+        <title>Configure the project</title>
+        <para>
+            The root folder of the project will present you with the following folder hieararchy:
+            <itemizedlist mark='opencircle'>
+                <listitem>
+                    <para>
+                    Simple_Lottery_Handbook/
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    lottery/
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    media/
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    simple_lottery/
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    static/
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    usermanagement/
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    <filename>.coverage</filename>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    <filename>.gitignore</filename>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    <filename>README.md</filename>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    <filename>circle.yml</filename>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    <filename>manage.py</filename>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    <filename>pip-requirements.txt</filename>
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            Please change into simple_lottery and create a copy of <filename>settings_local.template</filename> with the name <filename>settings_local.py</filename>.
+        </para>
+        <para>
+            <simplelist type='vert' columns='1'>
+                <member><code>cd simple_lottery/</code></member>
+                <member><code>cp settings_local.template settings_local.py</code></member>
+                <member><code>vi settings_local.py</code></member>
+            </simplelist>
+        </para>
+        <note><title>Editor of choice</title>
+            <para>
+            The last line with <code>vi settings_local.py</code> is just an example. Please use your editor of choice for editing the python file.
+            </para>
+        </note>
+        <para>
+            Most variables in the settings_local.py will already be as they are needed.
+        </para>
+        <important><title>SECRET_KEY is required for the project to run!</title>
+            <para>
+                SECRET_KEY is used in many security related places within the django framework and should never be shared nor exposed.
+                Here is an example of a secret key (don't use for productive use): 6*kpa+0m+%k(d-$_xbh#b7zch1_9ox0!35a^@q4fv=i*p!4*to
+            </para>
+        </important>
+    </section>
+    <section id="sect-Documentation-Simple_Lottery_Handbook-Configuration-Create_the_database">
+        <title>Create the database</title>
+        <para>
+            Change into the root folder of simple_lottery if you have not already and execute <code>python manage.py migrate</code>.
+            This will setup the database hierarchy and tables.
+        </para>
+        <para>
+        	After creating the database, you'll need to execute <code>python manage.py createsuperuser</code> to create an admin user.
+            The information asked will consist out of <replaceable>username</replaceable>, <replaceable>email address</replaceable>,
+            <replaceable>password</replaceable>.
+        </para>
+        <important><title>Make sure your virtual environment is active!</title>
+            <para>
+            In order to execute the manage.py script you'll have to have your environment active with the right python version,
+            otherwise you'll encounter potential issues / errors.
+            </para>
+        </important>
+    </section>
+    <section id="sect-Documentation-Simple_Lottery_Handbook-Configuration-Start_the_webapplication">
+        <title>Start the webapplication</title>
+        <para>
+            When you finished the configuration, please execute <code>python manage.py runserver</code> and head over to <ulink url="http://localhost:8000">http://localhost:8000</ulink> in your browser of choice.
+        </para>
+        <para>
+            The admin panel is accessible under <ulink url="http://localhost:8000/admin/">http://localhost:8000/admin/</ulink>.
+        </para>
+    </section>
+
+</chapter>
+

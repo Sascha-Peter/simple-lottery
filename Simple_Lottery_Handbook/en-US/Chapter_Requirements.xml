@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Simple_Lottery_Handbook.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documentation-Simple_Lottery_Handbook-Requirements">
+	<title>Requirements</title>
+	<para>
+		Simple Lottery is a web application written in Python, using the Django web framework.
+	</para>
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Requirements-Software_Requirements">
+		<title>Software Requirements</title>
+		<para>
+			In order to run this project, you will need the following software installed:
+			<orderedlist>
+				<listitem>
+					<para>
+						Python 3.3.2
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						PIP
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Virtualenv
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+		<para>The web application can be run on any Operating System supporting those requirements</para>
+	</section>
+	
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Requirements-PIP_package_requirements">
+		<title>PIP package requirements</title>
+		<para>
+			Additional requirements which need to be installed through pip:
+			<orderedlist>
+				<listitem>
+					<para>
+						Django 1.8.5
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						django-localflavor 1.1
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						psycopg2 2.6.1
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+		<para>This additional requirements can be found in the pip-requirements.txt file in the main project folder</para>
+	</section>
+
+</chapter>
+

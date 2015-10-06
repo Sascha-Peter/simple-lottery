@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Simple_Lottery_Handbook.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documentation-Simple_Lottery_Handbook-Installation">
+	<title>Installation</title>
+	<indexterm>
+        <primary>python</primary>
+        <secondary>object oriented programming language, widely found in unix/linux operating systems</secondary>
+    </indexterm>
+    <indexterm>
+    	<primary>pyenv</primary>
+        <secondary>Tool to use multiple python installations on the same unix system</secondary>
+    </indexterm>
+    <indexterm>
+    	<primary>django</primary>
+        <secondary>python web framework for perfectionists with deadlines</secondary>
+    </indexterm>
+    <indexterm>
+    	<primary>pip</primary>
+        <secondary>python package manager for installing additional packages from the python package index (PyPI)</secondary>
+    </indexterm>
+    <indexterm>
+    	<primary>software collections</primary>
+    	<secondary>software collections enabling to maintain different versions of software on the same machine, without compromising the global installation and requirements</secondary>
+    </indexterm>
+	<para>
+		The following sections will guide you through the setup and installation of the
+		software on your device.
+	</para>
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Installation-Setting_up_Python_3_on_MAC">
+		<title>Setup Python 3 on MAC</title>
+		<para>
+			Simple-Shop has been built and developed in Python 3.3.2 and Django 1.8.
+			One of the easiest ways to set up python3, or generally multiple versions of python
+			on your environment is through <ulink url="https://github.com/yyuu/pyenv">https://github.com/yyuu/pyenv</ulink>. 
+		</para>
+		<para>
+			The following commands are a quick cheat sheet for you if you installed everything correctly
+			with pyenv.
+		</para>
+		<para>
+			To install a version
+			<command>pyenv install <replaceable>version.number</replaceable></command>
+		</para>
+		<para>
+			To set it/switch to it
+			<command>pyenv global <replaceable>version.number</replaceable></command>
+		</para>
+		<para>
+			Then to check the set version
+			<command>pyenv version</command>
+		</para>
+		<para>
+			And the overall system version
+			<command>python --version</command>
+		</para>
+		<important><title>Python 3.3.2 required!</title>
+			<para>
+			The software has been tested with Python 3.3.2 and Django 1.8.
+			Please make sure you have the right version installed.
+			</para>
+		</important>
+	</section>
+
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Installation-Setting_up_Python_3_on_CentOS">
+		<title>Setup Python 3 on CentOS</title>
+		<para>
+			Simple Lottery has been built and tested in Python 3.3.2 on CentOS 7. Since CentOS 7 only ships with
+			Python 2.7, an alternative Python installation is needed.
+
+			The easiest way to do so on a RHEL based system are Software collections <ulink url="https://www.softwarecollections.org/en/docs/">https://www.softwarecollections.org/en/docs/</ulink>. You are free to use any other way to setup Python 3.3.2 on your device.
+		</para>
+		<para>
+			Please follow the instructions of the software collections documentation closely. It only takes a few steps to set it up.
+		</para>
+		<para>
+			After successfull installation, please test your python version with:
+			<command>python --version</command>
+		</para>
+		<important><title>Python 3.3.2 required!</title>
+			<para>
+			The software has been tested with Python 3.3.2 and Django 1.8.
+			Please make sure you have the right version installed.
+			</para>
+		</important>
+	</section>
+	
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Installation-Setup_Virtual_Environment">
+		<title>Setup Virtual Environment</title>
+		<para>
+			When working with different Python versions or different projects, it's suggested to
+			use separate environments for each project to handle their requirements.
+		</para>
+		<para>
+			For MAC users: One way to achieve this is to use virtualenv. Pyenv has a plugin for virtualenv <ulink url="https://github.com/yyuu/pyenv-virtualenv">https://github.com/yyuu/pyenv-virtualenv</ulink>.
+			But you are free to use any virtualenv solution you prefer.
+		</para>
+		<important><title>Make sure you activate your virtual environment!</title>
+			<para>
+			Depending on your operating system and virtualenv solution you went for, the command to activate the virtualenv
+			may vary. With pyenv-virtualenv the command would be <command>pyenv activate your-virtual-env</command>
+			</para>
+		</important>
+	</section>
+
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Installation-Install_project_dependencies">
+		<title>Install project dependencies</title>
+		<para>
+			When working with different Python versions or different projects, it's suggested to
+			use separate environments for each project to handle their requirements.
+		</para>
+		<para>
+			After activating the virtual environment for your simple_lottery project, you can install all
+			project requirements through PIP. All project dependencies are listed in the pip-requirements.txt file
+			in the root of the project.
+		</para>
+		<para>
+			<command>pip install -r pip-requirements.txt</command>
+		</para>
+	</section>
+
+</chapter>
+

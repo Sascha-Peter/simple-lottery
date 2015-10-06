@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Simple_Lottery_Handbook.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Documentation-Simple_Lottery_Handbook-Future">
+	<title>Future</title>
+	<para>
+		Simple Lottery, whilst functional, is not a finished product or web application. Many functions are rough around their edges, need optimization or improvements.
+	</para>
+
+	<section id="sect-Documentation-Simple_Lottery_Handbook-Future-Potential_Plans">
+		<title>Potential Plans</title>
+		<para>
+			The following points represent a small list of ideas and aspects which could be done when more time and resources get invested into this web application to make it a production ready product.
+		</para>
+		<para>
+			To make this lottery system ready, I would:
+			<orderedlist>
+				<listitem>
+					<para>
+						Add more unit tests to all modules
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Turn email into a required field
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Add more inline documentation
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Expand the frontend and make it more pretty with custom CSS (LessCSS/SaSS)
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Provide the user with an option to have a list of entered lotteries in the past
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Provide either a management command to send out an email to winners after the lottery finishes or give the user an on-page solution where he can see which lotteries he has won after they finished
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Provide filters or an overall better admin view for the winner list
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</section>
+
+</chapter>
+
