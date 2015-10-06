@@ -22,12 +22,3 @@ class LotteryTest(TestCase):
         """Tests the lottery list view"""
         response = self.client.get(reverse('lottery-list'))
         self.assertEqual(response.status_code, 200)
-
-    def test_list_count(self):
-        """Tests if the created lotteries are being displayed"""
-        Lottery.objects.create(title="test1", start_date=datetime.date.today(),
-                               end_date=datetime.date.today(),
-                               start_time=datetime.datetime.now().time(),
-                               end_time=self.time_in_3, max_entries=10)
-        response = self.client.get(reverse('lottery-list'))
-        self.assertEqual(len(response.context['object_list']), 1)
