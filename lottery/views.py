@@ -18,9 +18,9 @@ class LotteryListView(ListView):
 
     def get_queryset(self):
         """Custom queryset to exclude full or expired lotteries"""
-        return Lottery.objects.filter(Q(open_entries__gt=0) &
-                                      Q(end_date__gte=timezone.now()) &
-                                      Q(end_time__gt=datetime.datetime.now()))
+        return Lottery.objects.filter(Q(open_entries__gt=0),
+                                      Q(start_date__lte=timezone.now()),
+                                      Q(end_date__gte=timezone.now()))
 
 
 class LotteryDetailView(DetailView):
