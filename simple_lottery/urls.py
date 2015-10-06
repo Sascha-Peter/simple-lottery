@@ -21,11 +21,14 @@ from django.views.static import serve
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="base.html"), name="home"),
+    url(r'^lottery/', include('lottery.urls')),
     url(r'^logout/$', 'django.contrib.auth.views.logout',
         {'next_page': '/'},
         name="logout"),
     url('^', include('django.contrib.auth.urls')),
     url('^sign-up/', 'usermanagement.views.sign_up', name="sign-up"),
+    url(r'^admin/lottery_winner/', 'lottery.admin.show_lottery_winner',
+        name="winner-list"),
     url(r'^admin/', include(admin.site.urls)),
 ]
 
