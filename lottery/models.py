@@ -1,7 +1,7 @@
 """This file contains all model definitions for the lottery module
 
 @author: Sascha Peter <sascha.o.peter@gmail.com>
-@version: 0.3.0
+@version: 0.4.0
 @since: 2015-10-05
 """
 
