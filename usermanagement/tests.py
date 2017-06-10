@@ -8,18 +8,17 @@ import string
 class UserTest(TestCase):
     """Unit tests for testing user related actions."""
 
-    user_password = ''.join(
-        random.SystemRandom().choice(
-            string.ascii_uppercase + string.digits
-        ) for _ in range(16)
-    )
-
     def setUp(self):
         """Define test users and factories."""
         self.client = Client()
         self.factory = RequestFactory()
+        self.user_password = ''.join(
+            random.SystemRandom().choice(
+                string.ascii_uppercase + string.digits
+            ) for _ in range(16)
+        )
         self.user_one = User.objects.create_user(
-            username="dummy", email="dummy@test.com",
+            username="dummy", email=self.user_password,
             password="dummy_password")
         self.user_anonymous = AnonymousUser()
 
@@ -31,5 +30,5 @@ class UserTest(TestCase):
     def test_login(self):
         """Test if the login process is working for a defined user."""
         test_user = self.client.login(username='dummy',
-                                      password=self.user_one.password)
+                                      password=self.user_password)
         self.assertEqual(test_user, True)
