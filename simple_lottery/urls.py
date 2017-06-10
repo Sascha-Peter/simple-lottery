@@ -19,16 +19,20 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from django.views.static import serve
 from lottery import urls as lottery_urls
+from django.contrib.auth.views import logout
+from django.contrib.auth import urls
+from usermanagement.views import sign_up
+from lottery.admin import show_lottery_winner
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="base.html"), name="home"),
     url(r'^lottery/', include(lottery_urls)),
-    url(r'^logout/$', 'django.contrib.auth.views.logout',
+    url(r'^logout/$', logout,
         {'next_page': '/'},
         name="logout"),
-    url('^', include('django.contrib.auth.urls')),
-    url('^sign-up/', 'usermanagement.views.sign_up', name="sign-up"),
-    url(r'^admin/lottery_winner/', 'lottery.admin.show_lottery_winner',
+    url('^', include(urls)),
+    url('^sign-up/', sign_up, name="sign-up"),
+    url(r'^admin/lottery_winner/', show_lottery_winner,
         name="winner-list"),
     url(r'^admin/', include(admin.site.urls)),
 ]
