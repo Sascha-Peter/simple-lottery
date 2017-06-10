@@ -1,8 +1,8 @@
-"""This file contains all user related views
+"""This file contains all user related views.
 
-@author: Sascha Peter <sascha.o.peter@gmail.com>
-@version: 0.4.0
-@since: 2015-10-04
+author: Sascha Peter <sascha.o.peter@gmail.com>
+version: 0.4.0
+since: 2015-10-04
 """
 from django.shortcuts import render
 
@@ -10,7 +10,7 @@ from .forms import UserForm, UserProfileForm
 
 
 def sign_up(request):
-    """Handles user sign ups with user and profile form"""
+    """Handle user sign ups with user and profile form."""
     if request.method == "POST":
         user_form = UserForm(request.POST, prefix="user")
         profile_form = UserProfileForm(request.POST, prefix="userprofile")

@@ -1,5 +1,7 @@
 # simple-lottery
 
+[![Updates](https://pyup.io/repos/github/Sascha-Peter/simple-lottery/shield.svg)](https://pyup.io/repos/github/Sascha-Peter/simple-lottery/) [![Python 3](https://pyup.io/repos/github/Sascha-Peter/simple-lottery/python-3-shield.svg)](https://pyup.io/repos/github/Sascha-Peter/simple-lottery/) [![CircleCI](https://circleci.com/gh/Sascha-Peter/simple-lottery.svg?style=svg)](https://circleci.com/gh/Sascha-Peter/simple-lottery)
+
 Coding exercise to create a simple web application providing a lottery system.
 
 # Goal
