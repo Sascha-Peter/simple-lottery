@@ -1,3 +1,4 @@
+"""Url configuration for lottery module."""
 from django.conf.urls import url
 from .views import LotteryDetailView, LotteryListView
 

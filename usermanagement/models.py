@@ -1,4 +1,4 @@
-"""This file contains all user related models
+"""This file contains all user related models.
 
 @author: Sascha Peter <sascha.o.peter@gmail.com>
 @version: 0.4.0
@@ -9,7 +9,8 @@ from django.contrib.auth.models import User
 
 
 class UserProfile(models.Model):
-    """This model defines the user profile"""
+    """This model defines the user profile."""
+
     user = models.OneToOneField(User)
     address_1 = models.CharField("address line one", max_length=240)
     address_2 = models.CharField("address line two", max_length=240,
@@ -21,4 +22,5 @@ class UserProfile(models.Model):
                                 'HG1 5EY , LS168AG')
 
     def __str__(self):
+        """String representation of model."""
         return self.user.username

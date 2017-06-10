@@ -1,8 +1,8 @@
-"""This file contains all administrative views for the lottery module
+"""This file contains all administrative views for the lottery module.
 
-@author: Sascha Peter <sascha.o.peter@gmail.com>
-@version: 0.4.0
-@since: 2015-10-05
+author: Sascha Peter <sascha.o.peter@gmail.com>
+version: 0.4.0
+since: 2015-10-05
 """
 from django.contrib import admin
 from django.template.response import TemplateResponse
@@ -11,11 +11,13 @@ from .models import Lottery, Entry
 
 
 class EntryInline(admin.StackedInline):
+    """Entry inline."""
+
     model = Entry
     extra = 0
 
     def get_max_num(self, request, obj=None, **kwargs):
-        """Custom get_max_num method to limit based on maximum entries"""
+        """Custom get_max_num method to limit based on maximum entries."""
         max_num = 5
         if obj:
             max_num = obj.max_entries
@@ -24,6 +26,8 @@ class EntryInline(admin.StackedInline):
 
 
 class LotteryAdmin(admin.ModelAdmin):
+    """Lottery admin panel."""
+
     model = Lottery
     inlines = [EntryInline, ]
     exclude = ('entries', )
@@ -33,10 +37,13 @@ class LotteryAdmin(admin.ModelAdmin):
 
 
 class EntryAdmin(admin.ModelAdmin):
+    """Entry admin panel."""
+
     model = Entry
 
 
 def show_lottery_winner(request):
+    """Custom method to show lottery winner."""
     lotteries = Lottery.objects.all()
     context = {}
     context['winners'] = {}
