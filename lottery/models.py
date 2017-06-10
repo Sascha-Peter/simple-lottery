@@ -26,10 +26,10 @@ class Lottery(models.Model):
     slug = models.SlugField(unique=True)
 
     def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None, *args, **kwargs):
+             update_fields=None):
         """Custom save method to generate the entries upon creation."""
         if not self.id:
-            super(Lottery, self).save(*args, **kwargs)
+            super(Lottery, self).save()
             entries = []
             for entry in range(self.max_entries):
                 entries.append(Entry(lottery=self))
@@ -39,7 +39,7 @@ class Lottery(models.Model):
                                                  ).order_by('?').first()
             winning_entry.winner = True
             winning_entry.save()
-        super(Lottery, self).save(*args, **kwargs)
+        super(Lottery, self).save()
 
     def __str__(self):
         """Object string representation."""

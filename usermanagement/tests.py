@@ -18,8 +18,8 @@ class UserTest(TestCase):
             ) for _ in range(16)
         )
         self.user_one = User.objects.create_user(
-            username="dummy", email=self.user_password,
-            password="dummy_password")
+            username="dummy", email="dummy@test.com",
+            password=self.user_password)
         self.user_anonymous = AnonymousUser()
 
     def test_homepage(self):
