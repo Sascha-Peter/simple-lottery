@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 
 class Lottery(models.Model):
     """Lottery model."""
+
     title = models.CharField(max_length=140, blank=True)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -24,7 +25,8 @@ class Lottery(models.Model):
     open_entries = models.PositiveIntegerField(default=0)
     slug = models.SlugField(unique=True)
 
-    def save(self, *args, **kwargs):
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None, *args, **kwargs):
         """Custom save method to generate the entries upon creation."""
         if not self.id:
             super(Lottery, self).save(*args, **kwargs)
