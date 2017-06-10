@@ -20,7 +20,7 @@ class UserTest(TestCase):
         self.factory = RequestFactory()
         self.user_one = User.objects.create_user(
             username="dummy", email="dummy@test.com",
-            password=self.user_password)
+            password="dummy_password")
         self.user_anonymous = AnonymousUser()
 
     def test_homepage(self):
