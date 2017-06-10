@@ -18,7 +18,7 @@ class UserProfileInline(StackedInline):
     can_delete = False
 
 
-class UserAdmin(UserAdmin):
+class LotteryUserAdmin(UserAdmin):
     """User admin panel."""
 
     inlines = (UserProfileInline, )
@@ -30,5 +30,5 @@ class UserProfileAdmin(admin.ModelAdmin):
     model = UserProfile
 
 admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
+admin.site.register(User, LotteryUserAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
