@@ -1,7 +1,7 @@
 version: 1
 machine:
     post:
-      - pyenv global 2.7.12 3.3.6 3.4.4 3.5.3 3.6.1
+      - pyenv global 2.7.12 3.4.4 3.5.3 3.6.1
 
 dependencies:
   pre:
